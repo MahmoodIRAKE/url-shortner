@@ -9,7 +9,7 @@ const getShortenUrl = async (req, res) => {
       const {url}=req.body
       let checkUrl= await isValidUrl(url)
       if(!checkUrl){
-        res.status(300).send("THIS URL IS IN VALID"); 
+        res.status(404).send("THIS URL IS IN VALID"); 
       }
       let urlObj=await urlShortner(url)
       if(typeof(urlObj) !== 'string'){
@@ -17,7 +17,18 @@ const getShortenUrl = async (req, res) => {
       }
       res.status(200).send(urlObj);
     } catch (err) {
-        res.status(404).send(err);
+        res.status(500).send(err);
     }
   };
-  module.exports = { getShortenUrl };
+
+  const goToPage = async (req, res) => {
+    
+    try {
+      const {urlId}=req.params
+      res.status(200).send(urlId);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+  };
+
+  module.exports = { getShortenUrl,goToPage };

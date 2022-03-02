@@ -28,7 +28,10 @@ const urlIdGenrator= async()=>{
     }
     return urlId
 }
-
+const baseUrlCutter= async (url)=>{
+    let urlArray=url.split('/')
+    return urlArray[0]+"//"+urlArray[1]
+}
 const urlShortner=async (url)=>{
    let tempUrl=await isUrlExist(url)
    if(tempUrl){
