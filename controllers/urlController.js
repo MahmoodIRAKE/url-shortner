@@ -55,6 +55,9 @@ const getShortenUrl = async (req, res) => {
       if(typeof(urlObjResult) !== 'string'){
         urlObjResult.save()
       }
+      else{
+        res.status(200).send("Can Use Your input It Is Already Exist "+urlObjResult); 
+      }
        res.status(200).send(urlObjResult);
     } catch (err) {
         res.status(500).send(err);
