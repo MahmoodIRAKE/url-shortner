@@ -1,9 +1,9 @@
 const express = require("express");
-const {getShortenUrl,goToPage}= require('../controllers/urlController')
+const {getShortenUrl,goToPage,InsertCustomUrl}= require('../controllers/urlController')
 const apiRouter = express.Router();
 
-apiRouter.post("/shorten-url",getShortenUrl)
-apiRouter.get("/shorten-url-sugestions",getShortenUrl)
+apiRouter.post("/",getShortenUrl)
+apiRouter.post("/custom/:customUrl",InsertCustomUrl)
 // in this route we will redirect the url we have creted to long url
 apiRouter.get("/:urlId",goToPage)
 
