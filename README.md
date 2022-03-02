@@ -4,7 +4,8 @@
 # activating to local host
 - clone this repo
 - npm install 
-- npm run server 
+- npm run server
+- remove .example from .env.example file (this will be deleted after the interview) 
 - and you will have working project
 
 # Desgin 
